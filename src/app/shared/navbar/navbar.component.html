@@ -1,0 +1,35 @@
+<mat-toolbar class="header-toolbar" color="primary">
+  <mat-toolbar-row>
+    <div class="container">
+      <div class="row between-xs middle-xs header-row">
+        <nav>
+          <button mat-flat-button color="primary" routerLinkActive="active" routerLink="/home">Home</button>
+          <button mat-flat-button color="primary" routerLinkActive="active" routerLink="/products">Products</button>
+        </nav>
+        <div class="row between-xs middle-xs">
+
+          <button mat-raised-button
+                  [matBadge]=10
+                  matBadgeColor="warn"
+                  class="margin-rigth">
+            <mat-icon>shopping_cart</mat-icon> Cart
+          </button>
+
+
+          <button (click)="logaout()"
+                  mat-icon-button
+                  aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<!-- <button mat-stroked-button color="accent" (click)="logaout()">logout</button>
+
+<h3>{{name}}</h3>
+<h3>{{email}}</h3> -->
+
