@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -17,6 +18,7 @@ import { LisProductComponent } from './components/lis-product/lis-product.compon
   imports: [
     CommonModule,
     ProductsRoutingModule,
+    MaterialModule
   ]
 })
 export class ProductsModule { }

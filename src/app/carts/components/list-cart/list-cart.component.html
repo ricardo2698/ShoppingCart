@@ -1,1 +1,27 @@
-<p>list-cart works!</p>
+
+<div class="product-grid">
+  <div *ngFor="let cart of carts" >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ cart.uid | uppercase }}</mat-card-title>
+        <mat-card-subtitle *ngIf="cart.status === true">Comprado</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="cart.status === false">No Comprado</mat-card-subtitle>
+      </mat-card-header>
+      <div class="crop-image">
+        <img src="https://firebasestorage.googleapis.com/v0/b/shopping-cart-fba9a.appspot.com/o/carrito.png?alt=media&token=1d4ca01f-180e-47a3-95fe-71eba6ea2be1" alt="">
+      </div>
+      <mat-card-content *ngFor="let product of cart.products">
+        <li>{{ product.name }}</li>
+      </mat-card-content>
+      <mat-card-actions>
+
+        <button  mat-raised-button color="primary"(click)="deleteCart()" >Eliminar Carrito</button>
+        <button *ngIf="cart.status == false" mat-raised-button color="primary"(click)="comprarCart()" >Comprar</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>
+
+
+

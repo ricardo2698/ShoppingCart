@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -10,7 +11,8 @@ import { ListCartComponent } from './components/list-cart/list-cart.component';
   declarations: [CartComponent, ListCartComponent],
   imports: [
     CommonModule,
-    CartsRoutingModule
+    CartsRoutingModule,
+    MaterialModule
   ]
 })
 export class CartsModule { }

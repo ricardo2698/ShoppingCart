@@ -1,3 +1,5 @@
+import { CartsService } from './../../carts/carts.service';
+import { ProductsService } from './../../products/products.service';
 import { Subscription } from 'rxjs';
 import { AppState } from './../../ui.app.reducer';
 import { AuthService } from './../../auth/auth.service';
@@ -16,8 +18,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   email: string;
   subscription: Subscription = new Subscription;
 
+  countProduts: number;
+
   constructor(
     public authService: AuthService,
+    public productsService: ProductsService,
+    public cartsService: CartsService,
     private store: Store<AppState>
   ) { }
 
@@ -34,11 +40,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.email = auth.user.email;
       }
     );
+
+    // conteo para la cantidad de productos agregados al carrrito
+    this.store.select('cartProducts')
+    .subscribe(
+      data => {
+        this.countProduts =data.products.length;
+      }
+    )
   };
 
 
   logaout(){
     this.authService.logout();
+    this.productsService.cancelSubcriptions();
   }
 
 

@@ -9,9 +9,10 @@
         <div class="row between-xs middle-xs">
 
           <button mat-raised-button
-                  [matBadge]=10
+                  [matBadge]="countProduts"
                   matBadgeColor="warn"
-                  class="margin-rigth">
+                  class="margin-rigth"
+                  routerLink="/cart">
             <mat-icon>shopping_cart</mat-icon> Cart
           </button>
 

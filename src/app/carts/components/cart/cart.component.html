@@ -1,1 +1,43 @@
-<p>cart works!</p>
+<mat-horizontal-stepper>
+  <mat-step>
+    <ng-template matStepLabel>Sus productos</ng-template>
+    <div>
+        <p *ngIf="products.length === 0">no hay productos</p>
+        <div class="row" *ngFor="let product of products">
+          <div class="col-xs-12 col-sm-2 col-md-2">
+            <div class="box">
+              <img class="image" [src]="product.img" alt="">
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-5 col-md-5">
+            <div class="box">
+              {{ product.name | uppercase}}
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4">
+            <div class="box">
+              {{ product.price | currency}}
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-1 col-md-1">
+            <div class="box">
+              <button mat-icon-button
+              color="primary"
+              aria-label="Example icon button with a home icon"
+              (click)="deleteProduct(product)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Ordenar Carrito</ng-template>
+    <h1><button mat-raised-button color="primary"(click)="orderCart()" style="width: 100%;" >Ordenar</button></h1>
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+<button mat-raised-button routerLink="/cart/list" > Ver Carritos </button>

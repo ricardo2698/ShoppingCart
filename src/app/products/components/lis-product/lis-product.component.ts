@@ -1,3 +1,7 @@
+import { Product } from './../../product.model';
+import { AppState } from './../../../ui.app.reducer';
+import { Store } from '@ngrx/store';
+import { ProductsService } from './../../products.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LisProductComponent implements OnInit {
 
-  constructor() { }
+  products: Product[] = [];
+  constructor(
+    public store: Store<AppState>
+  ) { }
 
   ngOnInit(): void {
-  }
+    this.store.select('products').subscribe(
+      data => {
+        this.products = data.products;
+        /* console.log(data.products); */
+      }
+    )
+  };
 
 }

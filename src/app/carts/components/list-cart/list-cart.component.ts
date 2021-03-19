@@ -1,3 +1,5 @@
+import { Cart } from './../../cart.model';
+import { CartsService } from './../../carts.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCartComponent implements OnInit {
 
-  constructor() { }
+  carts: Cart[] = [];
+
+  constructor(
+    public cartsService: CartsService
+  ) { }
 
   ngOnInit(): void {
+
+
+    this.carts = this.cartsService.listCarts();
+    console.log(this.carts);
+
+  }
+
+  deleteCart(){
+
   }
 
 }

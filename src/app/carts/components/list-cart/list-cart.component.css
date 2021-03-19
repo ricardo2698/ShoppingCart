@@ -1,0 +1,12 @@
+.crop-image {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  position: relative;
+}
+.crop-image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=list-cart.component.css.map */
